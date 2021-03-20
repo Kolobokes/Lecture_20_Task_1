@@ -18,7 +18,7 @@ import static com.codeborne.selenide.Selenide.open;
 public class AppCardDeliveryTest {
     private Faker faker;
 
-    public String gatDate(int shift) {
+    public String gatShiftedDate(int shift) {
         LocalDate date = LocalDate.now();
         LocalDate plusDate = date.plusDays(shift);
 
@@ -35,7 +35,7 @@ public class AppCardDeliveryTest {
     @Test
     void correctTest(){
 
-        String correctDate = gatDate(4);
+        String correctDate = gatShiftedDate(4);
 
         open("http://localhost:9999");
         SelenideElement form = $("#root");
@@ -53,10 +53,10 @@ public class AppCardDeliveryTest {
     }
 
     @Test
-    void RescheduleMeetingTest(){
+    void rescheduleMeetingTest(){
 
-        String correctDate = gatDate(4);
-        String RescheduleDate = gatDate(6);
+        String correctDate = gatShiftedDate(4);
+        String RescheduleDate = gatShiftedDate(6);
 
         open("http://localhost:9999");
         SelenideElement form = $("#root");
@@ -83,7 +83,7 @@ public class AppCardDeliveryTest {
     @Test
     void incorrectCityTest(){
 
-        String correctDate = gatDate(4);
+        String correctDate = gatShiftedDate(4);
 
         open("http://localhost:9999");
         SelenideElement form = $("#root");
@@ -102,7 +102,7 @@ public class AppCardDeliveryTest {
     @Test
     void incorrectDateTest(){
 
-        String incorrectDate = gatDate(0);
+        String incorrectDate = gatShiftedDate(0);
 
         open("http://localhost:9999");
         SelenideElement form = $("#root");
@@ -121,7 +121,7 @@ public class AppCardDeliveryTest {
     @Test
     void incorrectNameTest(){
 
-        String correctDate = gatDate(4);
+        String correctDate = gatShiftedDate(4);
 
         open("http://localhost:9999");
         SelenideElement form = $("#root");
@@ -138,9 +138,9 @@ public class AppCardDeliveryTest {
     }
 
     @Test
-    void NotAgreementTest(){
+    void notAgreementTest(){
 
-        String correctDate = gatDate(4);
+        String correctDate = gatShiftedDate(4);
 
         open("http://localhost:9999");
         SelenideElement form = $("#root");
